@@ -1,15 +1,15 @@
 # users テーブル
 
-|     Column         |  Type  |   Options   |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false |
-| email              | string | null: false |
-| encrypted_password | string | null: false |
-| first_name         | string | null: false |
-| family_name        | string | null: false |
-| first_name_kana    | string | null: false |
-| family_name_kana   | string | null: false |
-| birthday           | integer| null: false |
+|     Column          |  Type  |   Options   |
+| ------------------- | ------ | ----------- |
+| nickname            | string | null: false |
+| email               | string | null: false |
+| encrypted_password  | string | null: false |
+| first_name          | string | null: false |
+| family_name         | string | null: false |
+| first_name_kana     | string | null: false |
+| family_name_kana    | string | null: false |
+| birth_day           | date   | null: false |
 
 
 ## Association
@@ -19,17 +19,17 @@
 
 # items テーブル
 
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | ------------------------------ |
-| product           | string     | null: false                    |
-| product_detail    | text       | null: false                    |
-| category          | string     | null: false                    |
-| product_condition | string     | null: false                    |
-| delivery_fee      | string     | null: false                    |
-| area              | string     | null: false                    |
-| days _to_ship     | string     | null: false                    |
-| price             | integer    | null: false                    |
-| user              | references | null: false, foreign_key: true |
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| product_name         | string     | null: false                    |
+| product_detail       | text       | null: false                    |
+| category_id          | integer    | null: false                    |
+| product_condition_id | integer    | null: false                    |
+| delivery_fee_id      | integer    | null: false                    |
+| area_id              | integer    | null: false                    |
+| days _to_ship_id     | integer    | null: false                    |
+| price                | integer    | null: false                    |
+| user                 | references | null: false, foreign_key: true |
 
 
 ## Association
@@ -52,15 +52,15 @@
 
 # shipping_address テーブル
 
-| Column        |   Type      |   Options                      |
-| ------------- | ----------- | ------------------------------ |
-| postal_code   | string      | null: false                    |
-| prefectures   | string      | null: false                    |
-| municipality  | text        | null: false                    |
-| address       | integer     | null: false                    |
-| building_name | text        |                                |
-| phone_number  | string      | null: false                    |
-| order_id      | references  | null: false, foreign_key: true |      
+| Column           |   Type      |   Options                      |
+| ---------------- | ----------- | ------------------------------ |
+| postal_code      | string      | null: false                    |
+| prefectures_id   | integer     | null: false                    |
+| municipality     | text        | null: false                    |
+| address          | string      | null: false                    |
+| building_name    | text        |                                |
+| phone_number     | string      | null: false                    |
+| order            | references  | null: false, foreign_key: true |      
 
 ## Association
 
