@@ -27,7 +27,7 @@
 | product_condition_id | integer    | null: false                    |
 | delivery_fee_id      | integer    | null: false                    |
 | area_id              | integer    | null: false                    |
-| days _to_ship_id     | integer    | null: false                    |
+| days_to_ship_id      | integer    | null: false                    |
 | price                | integer    | null: false                    |
 | user                 | references | null: false, foreign_key: true |
 
@@ -55,7 +55,7 @@
 | Column           |   Type      |   Options                      |
 | ---------------- | ----------- | ------------------------------ |
 | postal_code      | string      | null: false                    |
-| prefectures_id   | integer     | null: false                    |
+| area_id          | integer     | null: false                    |
 | municipality     | text        | null: false                    |
 | address          | string      | null: false                    |
 | building_name    | text        |                                |
@@ -64,7 +64,7 @@
 
 ## Association
 
--belongs-to :order
+-belongs_to :order
 
 
 
