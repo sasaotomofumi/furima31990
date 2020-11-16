@@ -2,7 +2,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
-  validates :nickname, presence: true
+  with_options presence: true do
+    validates :nickname
+    validates :birth_day
+  end
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'Include both letters and numbers' } 
   with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'Full-width characters' } do
     validates :first_name
@@ -12,7 +15,7 @@ class User < ApplicationRecord
     validates :first_name_kana
     validates :family_name_kana
   end
-  validates :birth_day, presence: true
+  
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
