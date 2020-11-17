@@ -1,2 +1,0 @@
-class Aricle < ApplicationRecord
-end
