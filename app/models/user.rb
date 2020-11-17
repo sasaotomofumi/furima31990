@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_many :products
+
   with_options presence: true do
     validates :nickname
     validates :birth_day

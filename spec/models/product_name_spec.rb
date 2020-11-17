@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe ProductOption, type: :model do
+RSpec.describe ProductName, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

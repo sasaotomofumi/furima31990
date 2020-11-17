@@ -14,7 +14,7 @@
 
 ## Association
 
--has_many :items
+-has_many :product
 -has_many :orders
 
 #  product テーブル
@@ -42,12 +42,12 @@
 | Column        |   Type      |   Options                      |
 | ------------- | ----------- | ------------------------------ |
 | user          | references  | null: false, foreign_key: true |
-| item          | references  | null: false, foreign_key: true |
+| product       | references  | null: false, foreign_key: true |
 
 ## Association
 
 -belongs_to :user
--belongs_to :item
+-belongs_to :product
 -has_one    :shipping_address
 
 # shipping_address テーブル

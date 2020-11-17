@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :product_option do
+  factory :product_name do
     
   end
 end
