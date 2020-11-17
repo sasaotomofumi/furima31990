@@ -12,7 +12,7 @@ class Product < ApplicationRecord
 
   validates :product_name, presence: true, length: { maximum: 40 }
   validates :product_detail, presence: true, length: { maximum: 1000 }
-  validates :price, presence: true, numericality: { greater_than: 299, less_than: 10000000  }
+  validates :price, presence: true, numericality: { greater_than: 299, less_than: 10_000_000 }
 
   with_options numericality: { other_than: 1 } do
     validates :category_id
@@ -21,5 +21,4 @@ class Product < ApplicationRecord
     validates :area_id
     validates :days_to_ship_id
   end
-
 end
