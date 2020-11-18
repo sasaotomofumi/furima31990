@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    @products = Product.all
   end
 
   def new
@@ -11,11 +12,16 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path
+      redirect_to product_path(@product.id)
     else
       render :new
     end
   end
+
+  def show
+    @product = Product.find(params[:id])
+  end
+
 
   private
 
