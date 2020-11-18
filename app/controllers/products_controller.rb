@@ -22,6 +22,12 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def destroy 
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to root_path
+  end
+
 
   private
 
