@@ -5,8 +5,11 @@ class Product < ApplicationRecord
   belongs_to :delivery_fee
   belongs_to :area
   belongs_to :days_to_ship
-  belongs_to :user
+  
   has_one_attached :image
+  
+  has_one    :order
+  belongs_to :user
 
   validates :image, presence: true
 
@@ -22,3 +25,4 @@ class Product < ApplicationRecord
     validates :days_to_ship_id
   end
 end
+
