@@ -1,13 +1,14 @@
 class OrdersController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index 
     @order = OrderShippingAddress.new
   end
 
   def create 
-    @order_shipping_address = OrderShippingAddress.new(order_params)               
-    if @order_shipping_address.valid?
-       @order_shipping_address.save
+    @order = OrderShippingAddress.new(order_params)               
+    if @order.valid?
+       @order.save
         redirect_to root_path
     else
       render action: :index
