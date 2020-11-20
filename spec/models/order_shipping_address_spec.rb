@@ -17,7 +17,7 @@ RSpec.describe OrderShippingAddress, type: :model do
         expect(@order_shipping_address.errors.full_messages).to include("Postal code can't be blank")
       end
       
-      it "postal_codeには-を含めると商品購入することができないこと" do 
+      it "postal_codeには-を含めないと商品購入することができないこと" do 
         @order_shipping_address.postal_code = 1001000
         @order_shipping_address.valid?
         expect(@order_shipping_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")

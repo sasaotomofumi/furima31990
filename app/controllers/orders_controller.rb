@@ -3,6 +3,10 @@ class OrdersController < ApplicationController
   
   def index 
     @order = OrderShippingAddress.new
+    @product = Product.find(params[:product_id])
+    if current_user = @product.user
+      redirect_to root_path
+    end
   end
 
   def create 

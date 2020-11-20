@@ -4,8 +4,7 @@ FactoryBot.define do
    area_id  { '2' }
    municipality { '東京都' }
    address { '青山1-1' }
-   phone_number { '09012345678' }
-   user_id { '1' }
-   product_id { '1' }
+   phone_number { '09012345678' } 
   end
+  
 end
