@@ -52,6 +52,11 @@ RSpec.describe OrderShippingAddress, type: :model do
       @order_shipping_address.valid?
       expect(@order_shipping_address.errors.full_messages).to include('Phone number is invalid')
     end
+    it 'phone_numberが12桁以上だと商品購入することができないこと' do
+      @order_shipping_address.phone_number = '090123456789'
+      @order_shipping_address.valid?
+      expect(@order_shipping_address.errors.full_messages).to include('Phone number is invalid')
+    end
     it 'tokenが空だと商品購入することができないこと' do
       @order_shipping_address.token = nil
       @order_shipping_address.valid?

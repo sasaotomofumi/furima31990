@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_product, only: [:index, :create]
 
   def index
     @order = OrderShippingAddress.new
-    @product = Product.find(params[:product_id])
     redirect_to root_path if current_user.id == @product.user.id
   end
 
@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
       @order.save
       redirect_to root_path
     else
-      @product = Product.find(params[:product_id])
       render action: :index
     end
   end
@@ -23,6 +22,10 @@ class OrdersController < ApplicationController
 
   def order_params
     params.permit(:postal_code, :area_id, :municipality, :address, :building_name, :phone_number, :product_id).merge(user_id: current_user.id, token: params[:token])
+  end
+
+  def set_product
+    @product = Product.find(params[:product_id])
   end
 
   def pay_order
