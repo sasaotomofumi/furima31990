@@ -23,10 +23,8 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if user_signed_in? && current_user.id == @product.user.id 
-      @product.destroy
-      end
-      redirect_to root_path
+    @product.destroy if user_signed_in? && current_user.id == @product.user.id
+    redirect_to root_path
   end
 
   private
@@ -35,7 +33,7 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:product_name, :product_detail, :price, :category_id, :product_condition_id, :delivery_fee_id, :area_id, :days_to_ship_id, :image).merge(user_id: current_user.id)
   end
 
-  def set_product 
+  def set_product
     @product = Product.find(params[:id])
   end
 end
