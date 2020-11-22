@@ -9,6 +9,10 @@ RSpec.describe OrderShippingAddress, type: :model do
     it '全ての値が存在すれば商品購入ができること' do
       expect(@order_shipping_address).to be_valid
     end
+    it 'building_nameが空でも商品購入することができること' do
+      @order_shipping_address.building_name = nil
+      expect(@order_shipping_address).to be_valid
+    end
 
     it 'postal_codeが空だと商品購入することができないこと' do
       @order_shipping_address.postal_code = nil
